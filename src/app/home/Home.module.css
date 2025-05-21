@@ -1,0 +1,49 @@
+.container {
+    background: linear-gradient(130deg, #ba72f9 0%, #b6a1e6 100%);
+    padding: 1.5rem;
+}
+
+.ContainerTitle {
+    margin-top: 24px; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    font-size: 2rem;  
+    color: #fff; 
+}
+
+.cardsContainer{
+   display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card{
+    background: #fff;
+    width: 220px;
+    cursor: pointer;
+}
+
+.card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: scale(1.02);
+    background-color:  #f9f9f9;
+}
+
+.cardInfo{
+    display: flex;
+    flex-direction: column;
+}
+
+.Nome{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #9743e0;
+}
+
+.Projeto{
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #000;
+}

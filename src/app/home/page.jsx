@@ -75,22 +75,21 @@ const openModal = async (estudante) => {
     }
     try {
    
-    const { data: estudanteCompleto } = await axios.get(
+    const { data: estudante } = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/estudantes/${estudante.id}`,
       { 
         headers: Headers 
       }
     );
-  toast.success(`Estudante ${estudanteCompleto.nome} carregado com sucesso!`);
-  setSessionStorage(cacheKey, estudanteCompleto);
+  setSessionStorage(cacheKey, estudante);
   setModalInfo((m) => ({
     ...m,
-    estudante: estudanteCompleto,
+    estudante,
     loading: false,
     }));
     
   } catch (error) {
-   toast.error(`Erro ao carregar estudante ${estudante.nome}`);
+  toast.error(`Erro ao carregar estudante ${estudante.nome || "desconhecido"}`);
   setModalInfo((m) => ({ ...m, loading: false }));
 
   }
@@ -156,9 +155,9 @@ const openModal = async (estudante) => {
       {modalInfo.estudante.email}
      </p>
      <p>
-      <span className={styles.label}> Projeto: </span>{""}
-      {modalInfo.estudante.projeto_nome}
-     </p>
+  <span className={styles.label}>Projeto: </span>
+  {modalInfo.estudante.projeto_nome|| "Não informado"}
+</p>
     </div>
   ) : (
     <p>Informações não encontradas.</p>
